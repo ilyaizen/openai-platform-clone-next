@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { BookOpen, Bot, Frame, LifeBuoy, Map, PieChart, Send, Settings2, SquareTerminal } from "lucide-react";
+import { BookOpen, Bot, Command, Frame, LifeBuoy, Map, PieChart, Send, Settings2, SquareTerminal } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
@@ -15,7 +15,6 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarTrigger,
 } from "@/components/ui/sidebar";
 
 const data = {
@@ -150,7 +149,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
-                <SidebarTrigger className="size-4" />
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                  <Command className="size-4" />
+                </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">Acme Inc</span>
                   <span className="truncate text-xs">Enterprise</span>

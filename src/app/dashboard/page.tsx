@@ -1,4 +1,4 @@
-import { AppSidebar } from "@/components/app-sidebar";
+import { AppSidebar } from "@/components/app-sidebar"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -6,9 +6,13 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+} from "@/components/ui/breadcrumb"
+import { Separator } from "@/components/ui/separator"
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@/components/ui/sidebar"
 
 export default function Page() {
   return (
@@ -17,11 +21,14 @@ export default function Page() {
       <SidebarInset className="md:peer-data-[variant=inset]:m-0 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-none">
         <header className="flex h-16 shrink-0 items-center gap-2">
           <div className="flex items-center gap-2 px-4">
+            <SidebarTrigger className="-ml-1" />
             <Separator orientation="vertical" className="mr-2 h-4" />
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem className="hidden md:block">
-                  <BreadcrumbLink href="#">Building Your Application</BreadcrumbLink>
+                  <BreadcrumbLink href="#">
+                    Building Your Application
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator className="hidden md:block" />
                 <BreadcrumbItem>
@@ -41,5 +48,5 @@ export default function Page() {
         </div>
       </SidebarInset>
     </SidebarProvider>
-  );
+  )
 }
