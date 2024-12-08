@@ -18,7 +18,7 @@ const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 const SIDEBAR_WIDTH = "14rem";
 const SIDEBAR_WIDTH_MOBILE = "16rem";
-const SIDEBAR_WIDTH_ICON = "2.5rem";
+const SIDEBAR_WIDTH_ICON = "3rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
 type SidebarContext = {
@@ -332,7 +332,7 @@ const SidebarContent = React.forwardRef<HTMLDivElement, React.ComponentProps<"di
       data-sidebar="content"
       className={cn(
         "flex min-h-0 flex-1 flex-col gap-2 overflow-auto transition-[opacity] duration-700 ease-out",
-        "group-data-[collapsible=icon]:overflow-hidden group-data-[collapsible=icon]:opacity-0",
+        "group-data-[collapsible=icon]:overflow-hidden",
         className
       )}
       {...props}
@@ -453,7 +453,7 @@ const SidebarMenuButton = React.forwardRef<
       data-active={isActive}
       className={cn(
         sidebarMenuButtonVariants({ variant, size }),
-        "[&>span]:transition-opacity [&>span]:duration-300 [&>span]:ease-out group-data-[collapsible=icon]:[&>span]:opacity-0",
+        "[&>span:not(:has(svg))]:transition-opacity [&>span:not(:has(svg))]:duration-300 [&>span:not(:has(svg))]:ease-out group-data-[collapsible=icon]:[&>span:not(:has(svg))]:opacity-0",
         className
       )}
       {...props}
