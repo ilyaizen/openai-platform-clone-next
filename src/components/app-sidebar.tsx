@@ -54,9 +54,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton onClick={toggleSidebar}>
+            <SidebarMenuButton onClick={toggleSidebar} className="group/toggle">
               <PanelLeft />
-              <span className="text-xs font-bold text-muted-foreground">Sidebar</span>
+              <span className="whitespace-nowrap text-xs font-bold text-muted-foreground opacity-0 transition-opacity duration-200 group-hover/toggle:opacity-100">
+                Sidebar Toggle
+              </span>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem></SidebarMenuItem>
