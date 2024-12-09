@@ -50,15 +50,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { toggleSidebar } = useSidebar();
 
   return (
-    <Sidebar collapsible="icon" variant="inset" className="pt-14" {...props}>
+    <Sidebar collapsible="icon" variant="inset" {...props}>
       <SidebarContent>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton onClick={toggleSidebar}>
               <PanelLeft />
-              <span className="text-xs font-bold uppercase">Playground</span>
+              <span className="text-xs font-bold text-muted-foreground">Sidebar</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
+          <SidebarMenuItem></SidebarMenuItem>
         </SidebarMenu>
         <NavMain items={data.navMain} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />

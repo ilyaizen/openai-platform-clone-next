@@ -1,30 +1,36 @@
+"use client";
+
 import * as React from "react";
-import { MenuIcon } from "lucide-react";
-import Link from "next/link";
 import { Button } from "./ui/button";
+import { useSidebar } from "./ui/sidebar";
 
 export function AppHeader() {
-  return (
-    <header className="fixed left-0 right-0 top-0 z-50 flex h-14 items-center bg-background px-4">
-      <div className="flex flex-1 items-center justify-between">
-        <div className="flex items-center gap-2">
-          <MenuIcon className="h-6 w-6" />
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <span className="font-semibold">OpenAI Platform Clone</span>
-          </Link>
-        </div>
+  const { state } = useSidebar();
 
-        <nav className="flex items-center gap-4">
-          <Button variant="ghost" size="sm">
-            Playground
-          </Button>
-          <Button variant="ghost" size="sm">
-            API Keys
-          </Button>
-          <Button variant="ghost" size="sm">
-            Usage
-          </Button>
-        </nav>
+  return (
+    <header className="h-14 w-full bg-background">
+      <div
+        className="grid h-full transition-[grid-template-columns] duration-300 ease-out"
+        style={{
+          gridTemplateColumns:
+            state === "collapsed" ? "calc(var(--sidebar-width-icon) + 15px) 1fr" : "var(--sidebar-width) 1fr",
+        }}
+      >
+        <div />
+        <div className="flex h-full items-center justify-between">
+          <h1 className="text-xl font-semibold">Platform</h1>
+          <nav className="flex items-center gap-4">
+            <Button variant="ghost" size="sm">
+              Playground
+            </Button>
+            <Button variant="ghost" size="sm">
+              API Keys
+            </Button>
+            <Button variant="ghost" size="sm">
+              Usage
+            </Button>
+          </nav>
+        </div>
       </div>
     </header>
   );
