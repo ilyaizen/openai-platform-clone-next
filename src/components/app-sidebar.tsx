@@ -5,14 +5,7 @@ import { BookOpen, Bot, LifeBuoy, PanelLeft, Send, Settings2 } from "lucide-reac
 
 import { NavMain } from "@/components/nav-main";
 import { NavSecondary } from "@/components/nav-secondary";
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  useSidebar,
-} from "@/components/ui/sidebar";
+import { Sidebar, SidebarContent, SidebarMenuButton, useSidebar } from "@/components/ui/sidebar";
 
 const data = {
   navMain: [
@@ -51,19 +44,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar collapsible="icon" variant="inset" {...props}>
-      <SidebarContent>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton onClick={toggleSidebar} className="group/toggle">
-              <PanelLeft />
-              <span className="whitespace-nowrap text-xs font-bold text-muted-foreground opacity-0 transition-opacity duration-200 group-hover/toggle:opacity-100">
-                Sidebar Toggle
-              </span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem></SidebarMenuItem>
-        </SidebarMenu>
+      <SidebarContent className="pt-14">
         <NavMain items={data.navMain} />
+        <SidebarMenuButton onClick={toggleSidebar} className="group/toggle">
+          <PanelLeft className="text-muted-foreground" />
+          <span className="whitespace-nowrap text-xs font-bold text-muted-foreground opacity-0 transition-opacity duration-200 group-hover/toggle:opacity-100">
+            Sidebar Toggle
+          </span>
+        </SidebarMenuButton>
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>
     </Sidebar>
